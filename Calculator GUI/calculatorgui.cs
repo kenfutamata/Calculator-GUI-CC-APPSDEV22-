@@ -27,6 +27,7 @@ namespace Calculator_GUI
 
         public void arthmetic_operation()
         {
+            //calculate is where all the cases with fixed values are placed here from various methods
             switch (calculate)
             {
                 case 1://addition
