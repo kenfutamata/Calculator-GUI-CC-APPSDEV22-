@@ -12,9 +12,39 @@ namespace Calculator_GUI
 {
     public partial class calculatorgui : Form
     {
+
+        double ans, num;
+        int calculate;
         public calculatorgui()
         {
             InitializeComponent();
+        }
+
+        public void arthmetic_operation()
+        {
+            switch (calculate)
+            {
+                case 1://addition
+                    ans = num + Double.Parse(calculatebox.Text);
+                    calculatebox.Text = Convert.ToString(ans);
+                    break;
+
+                case 2://subtraction
+                    ans = num - Double.Parse(calculatebox.Text);
+                    calculatebox.Text = Convert.ToString(ans);
+                    break;
+
+                case 3://multiplication
+                    ans = num * Double.Parse(calculatebox.Text);
+                    calculatebox.Text = Convert.ToString(ans);
+                    break;
+
+                case 4://division
+                    ans = num / Double.Parse(calculatebox.Text);
+                    calculatebox.Text = Convert.ToString(ans);
+                    break;
+            }
+
         }
 
         private void no_0_Click(object sender, EventArgs e)
@@ -74,19 +104,52 @@ namespace Calculator_GUI
 
         private void backspace_Click(object sender, EventArgs e)
         {
-            
+
             int length = Convert.ToInt32(calculatebox.Text.Length);
-            
+
             String store;
             if (length > 0)
             {
                 StringBuilder back = new StringBuilder(calculatebox.Text);
-                back.Remove(back.Length-1, 1);
+                back.Remove(back.Length - 1, 1);
                 store = back.ToString();
-                calculatebox.Text = store; 
+                calculatebox.Text = store;
             }
-            
+
         }
 
+        private void plus_Click(object sender, EventArgs e)
+        {
+            num = Double.Parse(calculatebox.Text);
+            calculate = 1;
+            calculatebox.Text = "";
+
+        }
+
+        private void minus_Click(object sender, EventArgs e)
+        {
+            num = Double.Parse(calculatebox.Text);
+            calculate = 2;
+            calculatebox.Text = "";
+        }
+
+        private void multiply_Click(object sender, EventArgs e)
+        {
+            num = Double.Parse(calculatebox.Text);
+            calculate = 3;
+            calculatebox.Text = "";
+        }
+
+        private void divide_Click(object sender, EventArgs e)
+        {
+            num = Double.Parse(calculatebox.Text);
+            calculate = 4;
+            calculatebox.Text = "";
+        }
+
+        private void equals_Click(object sender, EventArgs e)
+        {
+            arthmetic_operation(); 
+        }
     }
 }
