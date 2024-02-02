@@ -16,6 +16,7 @@ namespace Calculator_GUI
         double ans, num;
         //int calculate is where the user can choose either the 4 after pressing operation buttons 
         int calculate;
+
         public calculatorgui()
         {
             InitializeComponent();
