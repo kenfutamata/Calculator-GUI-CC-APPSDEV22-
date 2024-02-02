@@ -12,7 +12,7 @@ namespace Calculator_GUI
 {
     public partial class calculatorgui : Form
     {
-        // deleration in  all methods 
+        // decleration in  all methods 
         double ans, num;
         //int calculate is where the user can choose either the 4 after pressing operation buttons 
         int calculate;
