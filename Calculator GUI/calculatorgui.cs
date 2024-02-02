@@ -12,7 +12,10 @@ namespace Calculator_GUI
 {
     public partial class calculatorgui : Form
     {
-        // decleration in  all methods 
+        // decleration in  all methods
+        // num is where in all declared inside in all operative methods, it will be stored in the variable num and be headed
+        // to the arthmetic operation
+        // ans is where the answer will be displayed 
         double ans, num;
         //int calculate is where the user can choose either the 4 after pressing operation buttons 
         int calculate;
@@ -48,6 +51,7 @@ namespace Calculator_GUI
             }
 
         }
+        //program will display 0 if user wants to calculate using 0 - 9 
 
         private void no_0_Click(object sender, EventArgs e)
         {
@@ -99,19 +103,22 @@ namespace Calculator_GUI
             calculatebox.Text = calculatebox.Text + 9;
         }
 
+        //program is a double declaration but user can place a decimal point 
         private void decimalpoint_Click(object sender, EventArgs e)
         {
             calculatebox.Text = calculatebox.Text + ".";
         }
 
+        //program will allow the user to remove a single numerical value 
         private void backspace_Click(object sender, EventArgs e)
         {
-
+            //length is where the calculatebox.text will be based on its length
             int length = Convert.ToInt32(calculatebox.Text.Length);
 
             String store;
             if (length > 0)
             {
+                //using of Stringbuilder since it is needed by the keyword remove
                 StringBuilder back = new StringBuilder(calculatebox.Text);
                 back.Remove(back.Length - 1, 1);
                 store = back.ToString();
@@ -122,6 +129,8 @@ namespace Calculator_GUI
 
         private void plus_Click(object sender, EventArgs e)
         {
+            //program will add the numbers. the num with numeric contents will be transfered to the arthmetic operation
+            //for calculation
             num = Double.Parse(calculatebox.Text);
             calculate = 1;
             calculatebox.Text = "";
@@ -130,6 +139,8 @@ namespace Calculator_GUI
 
         private void minus_Click(object sender, EventArgs e)
         {
+            //program will subtract the numbers. the num with numeric contents will be transfered to the arthmetic operation
+            //for calculation
             num = Double.Parse(calculatebox.Text);
             calculate = 2;
             calculatebox.Text = "";
@@ -137,6 +148,8 @@ namespace Calculator_GUI
 
         private void multiply_Click(object sender, EventArgs e)
         {
+            //program will multiply the numbers. the num with numeric contents will be transfered to the arthmetic operation
+            //for calculation
             num = Double.Parse(calculatebox.Text);
             calculate = 3;
             calculatebox.Text = "";
@@ -144,6 +157,8 @@ namespace Calculator_GUI
 
         private void divide_Click(object sender, EventArgs e)
         {
+            //program will divide the numbers. the num with numeric contents will be transfered to the arthmetic operation
+            //for calculation
             num = Double.Parse(calculatebox.Text);
             calculate = 4;
             calculatebox.Text = "";
@@ -151,6 +166,7 @@ namespace Calculator_GUI
 
         private void equals_Click(object sender, EventArgs e)
         {
+            //program will display the results after computation 
             arthmetic_operation(); 
         }
     }
